@@ -63,19 +63,19 @@ Greek_philosophers = pd.concat([filter1, filter2])
 print("All Quotes from greek philosophers")
 print(Greek_philosophers) #did not implement .head here as only 2 out of the three authors show up at the top
 
-"""
-You will then show that you can add and remove columns. Create a new column in your DataFrame based on an existing column. 
-For instance, by multiplying or transforming numeric values, or by combining two columns into one. 
-Give the new column a clear name. 
-Afterward, remove a column that you no longer need using the .drop() method with axis=1, 
-and print the new list of columns to confirm that the column was removed.
-"""
-# Adding a new column based on existing data
+#Adding a new column based on existing data
 dfquotes["Quote Character length"] = dfquotes["Quote"].apply(len)
 print("DataFrame with New Column called Quote Character length:")
 print(dfquotes.columns)
 
-# Removing the newly added column
+#Removing the newly added column
 dfquotes = dfquotes.drop("Quote Character length", axis=1)
 print("Current Columns in DataFrame:")
 print(dfquotes.columns)
+
+#Using groupby function
+#adding back the Quote Character length column for numerical data
+dfquotes["Quote Character length"] = dfquotes["Quote"].apply(len)
+grouped = dfquotes.groupby("Author")["Quote Character length"].max().sort_values(ascending=False)
+print("Maximum Quote Character Length by Author in order from greatest to least:")
+print(grouped)
