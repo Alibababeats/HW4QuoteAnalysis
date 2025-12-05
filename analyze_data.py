@@ -47,3 +47,18 @@ print(collumn)
 cell = dfquotes.iloc[205]
 print("Single Cell:")
 print(cell)
+
+#filtered rows
+filter1 = dfquotes[dfquotes["Author"] == "Socrates"] # first filter
+print("All quotes by Socrates:")
+print(filter1)
+
+#second filter
+filter2 = dfquotes[(dfquotes["Author"] == "Plato") | (dfquotes["Author"] == "Epictetus")] 
+print("All quotes by Plato and Epictetus:")
+print(filter2)
+
+#combined filters
+Greek_philosophers = pd.concat([filter1, filter2])
+print("All Quotes from greek philosophers")
+print(Greek_philosophers)
