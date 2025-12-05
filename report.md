@@ -12,3 +12,6 @@ What did I do with pandas?
 - Deleted the column that was added
 - Added back the deleted column for numerical data to be able to perform the group by function
 - Used groupby function to find who has the highest character count in descending order
+I learned that there are 676 unique authors in the file, some appear more than once, some do not contain an author.
+Buddha has the most appearances with 56 quotes. The two main limitations of this data is that some quotes do not 
+have an author, and there is no numerical data that came with the original csv file, thus why I added the Character count.
